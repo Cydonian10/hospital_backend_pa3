@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\MedicoController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\EspecialidadController;
+use App\Models\Especialidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,9 @@ Route::post('login/user', [UserController::class, 'login']);
 Route::post('register/medico', [MedicoController::class, 'register']);
 Route::post('login/medico', [MedicoController::class, 'login']);
 
+//! *** Parte publica para Especialidades ***
+Route::get('especialidades', [EspecialidadController::class, 'index']);
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('user-profile', [UserController::class, 'userProfile']);
@@ -31,8 +35,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('medico-profile', [MedicoController::class, 'medicoProfile']);
     Route::get('logout/medico', [MedicoController::class, 'logout']);
 
-    //Especialidades
-    Route::apiResource('especialidades', EspecialidadController::class);
+    //!Especialidades
+    Route::apiResource('especialidades', EspecialidadController::class)->except('index');
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

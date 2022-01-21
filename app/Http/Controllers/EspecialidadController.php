@@ -12,7 +12,7 @@ class EspecialidadController extends Controller
 
     public function index()
     {
-        $especialidades = Especialidad::paginate(5);
+        $especialidades = Especialidad::all();
 
         return  new EspecialidadCollection($especialidades);
     }
