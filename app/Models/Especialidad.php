@@ -9,8 +9,11 @@ class Especialidad extends Model
 {
     protected $table = "especialidads";
 
-
     use HasFactory;
+
+    protected $fillable = [
+        'name'
+    ];
 
     //uno a muchos
     public function medicos()

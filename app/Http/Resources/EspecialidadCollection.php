@@ -3,17 +3,19 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Symfony\Component\VarDumper\VarDumper;
 
 class EspecialidadCollection extends ResourceCollection
 {
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+
+    public $collects = EspecialidadResource::class;
+
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return  [
+            'data' => $this->collection,
+            'type' => 'Especialidades',
+            'message' => 'Especialidades de forma paginado'
+        ];
     }
 }
