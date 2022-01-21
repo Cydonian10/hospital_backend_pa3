@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\MedicoController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\RecetaController;
 use App\Models\Especialidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,9 +36,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('medico-profile', [MedicoController::class, 'medicoProfile']);
     Route::get('logout/medico', [MedicoController::class, 'logout']);
 
-    //!Especialidades
+    //! ** Especialidades **
     Route::apiResource('especialidades', EspecialidadController::class)->except('index');
+
+    //! ** Recetas **
+    Route::get('recetas/user', [RecetaController::class, 'recetasByUser']);
+    Route::apiResource('recetas', RecetaController::class);
 });
+
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();

@@ -64,7 +64,7 @@ class EspecialidadController extends Controller
         $especialidad->save();
 
         return response()->json([
-            'message' => 'Una sola especialidad',
+            'message' => 'Actulizacion exitosa',
             'data' => new EspecialidadResource($especialidad)
         ]);
     }

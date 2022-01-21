@@ -18,7 +18,7 @@ class CreateRecetasTable extends Migration
 
             $table->string('name');
             $table->text('description');
-            $table->text('medico_name');
+            $table->string('medico_name');
 
             $table->timestamps();
 

@@ -17,7 +17,8 @@ class CitaFactory extends Factory
             'name' => $this->faker->name(),
             'sala_meet_cita' => $this->faker->url(),
             'user_id' => $this->faker->numberBetween(1, 20),
-            'medico_id' => $this->faker->numberBetween(1, 10)
+            'medico_id' => $this->faker->numberBetween(1, 10),
+            'description' => $this->faker->text()
         ];
     }
 }
