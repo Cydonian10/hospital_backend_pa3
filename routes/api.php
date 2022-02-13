@@ -26,6 +26,7 @@ Route::post('login/user', [UserController::class, 'login']);
 Route::post('register/medico', [MedicoController::class, 'register']);
 Route::post('login/medico', [MedicoController::class, 'login']);
 
+
 //! *** Parte publica para Especialidades ***
 Route::get('especialidades', [EspecialidadController::class, 'index']);
 
