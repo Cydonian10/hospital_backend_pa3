@@ -26,7 +26,7 @@ class MedicoController extends Controller
             'name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users|unique:medicos',
-            'password' => 'required|confirmed',
+            'password' => 'required',
             'especialidad_id' => 'required'
         ]);
 
