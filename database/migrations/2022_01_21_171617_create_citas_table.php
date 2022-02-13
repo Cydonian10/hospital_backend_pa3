@@ -22,6 +22,7 @@ class CreateCitasTable extends Migration
 
             $table->string('sala_meet_cita')->nullable();
             $table->enum('estado', ['pendiente', 'rechazado', 'aceptado'])->default('pendiente');
+            $table->enum('cliente', ['cancelado', 'no-cancelado'])->default('no-cancelado');
             $table->timestamps();
 
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete('set null');

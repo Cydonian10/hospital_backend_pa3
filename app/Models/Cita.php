@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
 {
+    use HasFactory;
 
     protected $table = "citas";
 
-    use HasFactory;
+    protected $fillable = ['name', 'description', 'estado', 'user_id', 'medico_id', 'cliente'];
 }

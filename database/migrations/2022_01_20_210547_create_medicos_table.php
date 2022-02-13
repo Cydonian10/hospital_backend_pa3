@@ -27,6 +27,7 @@ class CreateMedicosTable extends Migration
             $table->string('password');
             $table->enum('status', ['activo', 'inactivo'])->default('inactivo');
             $table->string('titulo_medico')->nullable();
+            $table->json('horarios')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

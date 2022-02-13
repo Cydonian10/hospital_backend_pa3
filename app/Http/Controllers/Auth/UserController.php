@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
     public function register(Request $request)
     {
         $request->validate([
@@ -56,6 +57,20 @@ class UserController extends Controller
             ], 404);
         }
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->fill($request->all());
+        $user->save();
+
+        return response()->json([
+            'message' => 'Actulizacion exitosa',
+            'data' => $user
+        ]);
+    }
+
 
     public function userProfile()
     {

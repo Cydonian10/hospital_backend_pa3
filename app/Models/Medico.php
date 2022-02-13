@@ -18,7 +18,12 @@ class Medico extends Authenticatable
         'email',
         'password',
         'last_name',
-        'especialidad_id'
+        'especialidad_id',
+        'photo',
+        'status',
+        'telefono',
+        'titulo_medico',
+        'horarios'
     ];
 
     protected $hidden = [

@@ -3,12 +3,23 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MedicoResource;
 use App\Models\Medico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class MedicoController extends Controller
 {
+    public function index()
+    {
+        $medicos = Medico::all();
+
+        return response()->json([
+            "message" => "Todos los medicos",
+            "data" => MedicoResource::collection($medicos)
+        ]);
+    }
+
     public function register(Request $request)
     {
         $request->validate([
@@ -62,6 +73,19 @@ class MedicoController extends Controller
         return response()->json([
             "message" => "Perfil de usuario",
             "data" => auth()->user()
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $medico = Medico::find($id);
+
+        $medico->fill($request->all());
+        $medico->save();
+
+        return response()->json([
+            'message' => 'Actulizacion exitosa',
+            'data' => $medico
         ]);
     }
 
