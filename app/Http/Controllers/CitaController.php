@@ -27,6 +27,9 @@ class CitaController extends Controller
         ]);
     }
 
+
+
+
     public function citasByMedico()
     {
 
