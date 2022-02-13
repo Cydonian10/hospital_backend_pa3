@@ -22,13 +22,13 @@ class MedicoController extends Controller
 
     public function register(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'last_name' => 'required',
-        //     'email' => 'required|email|unique:users|unique:medicos',
-        //     'password' => 'required',
-        //     'especialidad_id' => 'required'
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users|unique:medicos',
+            'password' => 'required|confirmed',
+            'especialidad_id' => 'required'
+        ]);
 
         $medico = Medico::create([
             'password' => Hash::make($request->password),
